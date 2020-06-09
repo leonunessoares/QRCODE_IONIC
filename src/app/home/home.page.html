@@ -1,20 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Ionic Scanner
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+ 
+  <ion-card class="welcome-card">
+    <ion-card-subtitle>by LeoNS</ion-card-subtitle>
+    <br>
+    <center><img src="/assets/scan.jpeg" width="40%" height="40%" alt="" /></center>
+    <ion-card-header>
+      
+      
+      <ion-card-title><center>Ler QR Code / Código Barras</center></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p></p>
+    </ion-card-content>
+    <ion-button expand='block' margin (click)="lerCodigo()">Pressione para scanear</ion-button>
+    <div *ngIf="scannedData"> 
+      
+        <p  *ngIf="validaDataScan =='1'">
+        
+          <a href="{{scannedData['text']}}"><h4>{{ scannedData["text"] }}</h4></a>
+       
+        </p>
+        <p  *ngIf="validaDataScan =='0'">
+          <b>{{ scannedData["text"] }}</b>
+        </p>
+      <!--<p>
+        Scanned Code Format : <b>{{ scannedData["format"] }}</b>
+      </p>-->
+    </div>
+  </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+</ion-content>  
